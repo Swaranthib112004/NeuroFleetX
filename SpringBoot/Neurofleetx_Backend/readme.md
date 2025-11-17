@@ -1,45 +1,28 @@
-# NeuroFleetX Backend
+# NeuroFleetX Backend (Spring Boot)
 
-Spring Boot backend application for the NeuroFleetX project.
+## Run with H2 (dev quick start)
+1. cd backend
+2. mvn clean package
+3. mvn spring-boot:run
+- Backend: http://localhost:8080
+- H2 console: http://localhost:8080/h2-console (JDBC: jdbc:h2:mem:neurofleetxdb)
 
-## 🚀 Setup & Run
+## Run with PostgreSQL (recommended)
+1. Start PostgreSQL and create DB `neurofleetx`
+2. Set env vars (Windows PowerShell):
+   $env:SPRING_DATASOURCE_URL="jdbc:postgresql://localhost:5432/neurofleetx"
+   $env:SPRING_DATASOURCE_USERNAME="your_pg_user"
+   $env:SPRING_DATASOURCE_PASSWORD="your_pg_password"
+   $env:JWT_SECRET="ReplaceWithAStrongSecretKey"
+3. mvn spring-boot:run
+Flyway will run migrations on start.
 
-### 1️⃣ Prerequisites Used
-- Java JDK 24 or later  
-- Apache Maven 3.9+  
-- POSTGRESQL PgAdmin
-
-### 2️⃣ Build the Project
-```bash
-mvn clean install
-3️⃣ Run the Application
-bash
-Copy code
-mvn spring-boot:run
-4️⃣ Test the Server
-Open in browser or Postman:
-
-bash
-Copy code
-http://localhost:8080/api/hello
-Expected Output:
-✅ Spring Boot backend is running successfully!
-📁 Project Structure
-swift
-Copy code
-src/
- ├─ main/java/com/neurofleetx/backend/
- │   ├─ BackendApplication.java
- │   └─ controller/
- │       └─ HelloController.java
- └─ main/resources/
-     ├─ application.properties
-     └─ static/ | templates/
-🧩 Technologies
-Java Spring Boot
-
-Maven
-
-REST API
-
-✅ Status: Backend running successfully on http://localhost:8080
+## API basics
+- POST /api/auth/register
+- POST /api/auth/login
+- GET /api/vehicles
+- POST /api/vehicles
+- GET /api/bookings
+- POST /api/bookings/create
+- GET /api/maintenance
+- POST /api/maintenance
