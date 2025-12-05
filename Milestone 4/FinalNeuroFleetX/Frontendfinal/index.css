@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@tailwind base; @tailwind components; @tailwind utilities;
+
+:root{
+  --bg: #ffffff;
+  --card: #fbfdff;
+  --muted: #6b7280;
+  --accent: #00B8A9;
+}
+
+/* global */
+html,body,#root{height:100%}
+body{background: linear-gradient(180deg,#ffffff,#f7fbff); font-family:'Poppins',sans-serif; color:#0f1724; margin:0;}
+
+/* header */
+.header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.6));backdrop-filter: blur(6px);box-shadow:0 6px 24px rgba(15,23,36,0.06);z-index:50;}
+.sidebar{width:260px;padding:18px;border-right:1px solid rgba(15,23,36,0.03);position:fixed;top:72px;bottom:0;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.4));}
+.main{margin-top:88px;margin-left:280px;padding:24px}
+
+/* card */
+.card{background:var(--card);border-radius:16px;padding:18px;border:1px solid rgba(15,23,36,0.03);box-shadow:0 10px 30px rgba(12,15,24,0.02);}
+
+/* buttons */
+.btn{padding:10px 14px;border-radius:12px;font-weight:600;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease;}
+.btn-glow{background:linear-gradient(90deg,var(--accent),#00d4b6);color:white;box-shadow:0 12px 40px rgba(0,184,169,0.12)}
+.btn:hover{transform:translateY(-3px)}
+
+/* theme accent classes (switchable via JS) */
+.theme-cyan { --accent: #00B8A9 }
+.theme-peach { --accent: #FF6B94 }
+.theme-lavender { --accent: #8E6FFF }
+
+/* small helpers */
+.fade-in{animation:fadeIn .45s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
